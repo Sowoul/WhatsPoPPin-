@@ -49,7 +49,6 @@ def login():
 
 
 
-
 """
 This function handles the uploading part of the app, only limited to images for now, also stores the
 image info in the posts.json to provide a static storage.
