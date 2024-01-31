@@ -10,10 +10,10 @@
             min-height: 100vh;
         }
         .bg-image {
-            background-image: url('https://bootstrapious.com/i/snippets/sn-page-split/bg.jpg');
-            background-size: cover;
-            background-position: center center;
-        }
+    background-image: url("{{ url_for('static', filename='bg.png') }}");
+    background-size: cover;
+    background-position: center center;
+}
     </style>
 </head>
 <body>
@@ -23,13 +23,13 @@
             <div class="col-md-6 d-none d-md-flex bg-image"></div>
             <!-- The content half -->
             <div class="col-md-6 bg-light">
-                <div class="login d-flex align-items-center py-5">
+                <div class="login d-flex align-items-center justify-content-center py-5"><!-- Centering content horizontally -->
                     <!-- Demo content-->
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-10 col-xl-7 mx-auto">
-                                <h3 class="display-4">WhatsPoppin!</h3>
-                                <p class="text-muted mb-4">Login to your WhatsPoPPin' account.</p>
+                                <h3 class="display-4 text-center">  WhatsPoppin</h3><!-- Centering text -->
+                                <p class="text-muted mb-4 text-center">Login to your WhatsPoPPin' account.  </p><!-- Centering text -->
                                 <form method="POST">
                                     <div class="form-group mb-3">
                                         <input id="inputUsername" type="text" placeholder="User Name" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" name="username">
@@ -51,7 +51,7 @@
             </div><!-- End -->
         </div>
     </div>
-    <div class="container">
+        <div class="container">
         <footer class="py-3 my-4">
           <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Back to Top</a></li>
