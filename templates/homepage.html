@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WhatsPoppin'</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
         .post-container {
             position: relative;
             margin-bottom: 3%;
+            height: 660px; 
+            overflow: hidden;
+
         }
         .post-image {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             border-radius: 8px;
         }
         .username-overlay {
@@ -33,6 +38,8 @@
             scale: 2;
             cursor: pointer;
         }
+        
+        
     </style>
 </head>
 <body>
@@ -43,13 +50,22 @@
                     <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
                 </form>
             </div>
-            <div class="image-container" style="margin-left: 0">
-                <div class="flex-shrink-0 dropdown">
-                    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{{ user_info.user_img }}" alt="User" width="32" height="32" class="rounded-circle">
-                    </a>
-                </div>
-            </div>
+            <div class="flex-shrink-0 dropdown">
+                <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="{{user_info.user_img}}" alt="mdo" width="32" height="32" class="rounded-circle">
+                </a>
+                <ul class="dropdown-menu text-small shadow" style="margin-right: auto;">
+                    <li class="dropdown-header">Logged in as:</li>
+                    <li class="dropdown-header" style="line-height: 0.85">{{user_info.username}}</li>
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#uploadModal"> <i class="bi bi-plus-square"></i> &#160Add Post</a></li>
+
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Settings</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="bi bi-person-check"></i> Profile</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="/login" style="color: red; background-color: white !important;"><i class="bi bi-arrow-left-square" style="padding-top: 3px;"></i> &#160Sign out</a></li>
+                </ul>
+              </div>
+              </div>
         </div>
     </header>
     <div class="container-fluid pb-3">
@@ -70,12 +86,6 @@
             </div>
         </div>
     </div>
-    <button class="upload-button" type="button" data-bs-toggle="modal" data-bs-target="#uploadModal">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
-            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
-            <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z"/>
-        </svg>
-    </button>
 
     <!-- Modal -->
     <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
